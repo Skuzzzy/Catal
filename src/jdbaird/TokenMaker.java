@@ -12,6 +12,7 @@ public class TokenMaker {
 
     public TokenMaker(String expression){
         this.expression = expression;
+        this.tokenList = new ArrayList<Token>();
         createTokens();
     }
 

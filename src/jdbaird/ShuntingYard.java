@@ -18,6 +18,11 @@ public class ShuntingYard {
 
     public ShuntingYard(ArrayList<Token> tokenArrayList){
         this.tokenArrayList = tokenArrayList;
+        this.outputList = new ArrayList<Token>();
+    }
+
+    public ArrayList<Token> getOutputList(){
+        return outputList;
     }
 
     public void algorithm(){
@@ -60,8 +65,10 @@ public class ShuntingYard {
                 default: //Something went horrendously wrong :(
                     System.out.println("No such type found for "+i+" Type "+tokenArrayList.get(i).getType());
             }
-
-
+        }
+        //After For Loop
+        while(!operators.isEmpty()){
+            outputList.add(operators.pop());
         }
     }
 
