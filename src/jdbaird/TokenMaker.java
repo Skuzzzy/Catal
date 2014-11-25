@@ -12,6 +12,7 @@ public class TokenMaker {
 
     public TokenMaker(String expression){
         this.expression = expression;
+        createTokens();
     }
 
     public ArrayList<Token> getTokenList(){
@@ -44,27 +45,27 @@ public class TokenMaker {
                 ++i;
             }else if(currentChar == '-'){
                 tokenString = "-";
-                tokenList.add(new Token(tokenString,2));
+                tokenList.add(new Token(tokenString,1));
                 tokenString = "";
                 ++i;
             }else if(currentChar == '*'){
                 tokenString = "*";
-                tokenList.add(new Token(tokenString,3));
+                tokenList.add(new Token(tokenString,1));
                 tokenString = "";
                 ++i;
             }else if(currentChar == '/'){
                 tokenString = "/";
-                tokenList.add(new Token(tokenString,4));
+                tokenList.add(new Token(tokenString,1));
                 tokenString = "";
                 ++i;
             }else if(currentChar == '('){
                 tokenString = "(";
-                tokenList.add(new Token(tokenString,5));
+                tokenList.add(new Token(tokenString,2));
                 tokenString = "";
                 ++i;
             }else if(currentChar == ')'){
                 tokenString = ")";
-                tokenList.add(new Token(tokenString,6));
+                tokenList.add(new Token(tokenString,3));
                 tokenString = "";
                 ++i;
             }

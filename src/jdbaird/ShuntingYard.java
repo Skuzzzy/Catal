@@ -19,4 +19,23 @@ public class ShuntingYard {
         this.tokenArrayList = tokenArrayList;
     }
 
+    public void algorithm(){
+        for(int i=0;i<tokenArrayList.size();i++){
+            switch (tokenArrayList.get(i).getType()){
+                case 0: //Is number
+                    break;
+                case 1: //Is operator
+                    break;
+                case 2: //Is (
+                    break;
+                case 3: //Is )
+                    break;
+                default: //Something went horrendously wrong :(
+                    System.out.println("No such type found for "+i+" Type "+tokenArrayList.get(i).getType());
+            }
+
+
+        }
+    }
+
 }
