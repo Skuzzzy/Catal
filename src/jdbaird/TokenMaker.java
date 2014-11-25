@@ -30,45 +30,56 @@ public class TokenMaker {
 
             if(IsPartOfNumber(currentChar)){
                 tokenString += currentChar;
-                while(++i != expression.length() && tokenString != ""){
-                    if(IsPartOfNumber(expression.charAt(i))){
-                        currentChar = expression.charAt(i);
-                        tokenString += currentChar;
-                    }else{
+                while(tokenString != ""){
+                    i++;
+
+                    if(i>= expression.length()){ //If it is the end of the expression
                         tokenList.add(new Token(tokenString,0));
                         tokenString = "";
+                    }else{
+                        if(IsPartOfNumber(expression.charAt(i))){
+                            currentChar = expression.charAt(i);
+                            tokenString += currentChar;
+                        }else{
+                            tokenList.add(new Token(tokenString,0));
+                            tokenString = "";
+                        }
                     }
+
+
                 }
             }else if(currentChar == '+'){
                 tokenString = "+";
                 tokenList.add(new Token(tokenString,1));
                 tokenString = "";
-                ++i;
+                i++;
             }else if(currentChar == '-'){
                 tokenString = "-";
                 tokenList.add(new Token(tokenString,1));
                 tokenString = "";
-                ++i;
+                i++;
             }else if(currentChar == '*'){
                 tokenString = "*";
                 tokenList.add(new Token(tokenString,1));
                 tokenString = "";
-                ++i;
+                i++;
             }else if(currentChar == '/'){
                 tokenString = "/";
                 tokenList.add(new Token(tokenString,1));
                 tokenString = "";
-                ++i;
+                i++;
             }else if(currentChar == '('){
                 tokenString = "(";
                 tokenList.add(new Token(tokenString,2));
                 tokenString = "";
-                ++i;
+                i++;
             }else if(currentChar == ')'){
                 tokenString = ")";
                 tokenList.add(new Token(tokenString,3));
                 tokenString = "";
-                ++i;
+                i++;
+            }else{
+                System.out.println("Char not found");
             }
 
             //TODO Exponent Token
