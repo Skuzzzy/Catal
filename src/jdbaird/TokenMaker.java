@@ -17,33 +17,39 @@ public class TokenMaker {
     public void createTokens(){ //Assume expression is well formed
         tokenList.clear();
         String tokenString = "";
-        int tokenType = -1; //TODO
 
-        for(int i=0;i<expression.length();i++){
+        int i = 0;
+        while(i<expression.length()){
             char currentChar = expression.charAt(i);
-
-            if(currentChar == '+' ||currentChar == '-' || currentChar == '(' || currentChar == ')'){
-                tokenList.add(new Token(tokenString)); //TODO Add token based on the token Type
-                tokenString = "";
-            }
 
             if(IsPartOfNumber(currentChar)){
                 tokenString += currentChar;
-            }
-            if(currentChar == '+'){
+                while(++i != expression.length() && tokenString != ""){
+                    if(IsPartOfNumber(expression.charAt(i))){
+                        currentChar = expression.charAt(i);
+                        tokenString += currentChar;
+                    }else{
+                        tokenList.add(new Token(tokenString));
+                        tokenString = "";
+                    }
+                }
+            }else if(currentChar == '+'){
                 tokenString = "+";
-            }
-            if(currentChar == '-'){
+                tokenList.add(new Token(tokenString));
+                tokenString = "";
+            }else if(currentChar == '-'){
                 tokenString = "-";
-            }
-            if(currentChar == '('){
+                tokenList.add(new Token(tokenString));
+                tokenString = "";
+            }else if(currentChar == '('){
                 tokenString = "(";
-            }
-            if(currentChar == ')'){
+                tokenList.add(new Token(tokenString));
+                tokenString = "";
+            }else if(currentChar == ')'){
                 tokenString = ")";
+                tokenList.add(new Token(tokenString));
+                tokenString = "";
             }
-
-
 
         }
     }
