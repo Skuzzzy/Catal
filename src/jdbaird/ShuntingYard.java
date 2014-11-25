@@ -27,8 +27,10 @@ public class ShuntingYard {
 
     public void algorithm(){
         for(int i=0;i<tokenArrayList.size();i++){
+            //System.out.print("\n"+tokenArrayList.get(i).getValue() + "|" +tokenArrayList.get(i).getType()+" ");
             switch (tokenArrayList.get(i).getType()){
                 case 0: //Is number
+                    outputList.add(tokenArrayList.get(i));
                     break;
                 case 1: //Is operator
                         boolean operatorNotPlaced = true;
@@ -38,6 +40,7 @@ public class ShuntingYard {
                                 if (firstOperatorHasPrecedence(tokenArrayList.get(i), operators.peek())) {
                                     //If current is higher priority than the one on the stack just put the current on the stack
                                     operators.add(tokenArrayList.get(i));
+                                    operatorNotPlaced = false;
                                 } else {
                                     //If not, pop the top of the stack, append it to the outputList, then again try to attach the current on the stack
                                     outputList.add(operators.pop());
@@ -45,6 +48,7 @@ public class ShuntingYard {
                                 }
                             }else{
                                 operators.add(tokenArrayList.get(i));
+                                operatorNotPlaced = false;
                             }
                         }
                     break;
@@ -55,12 +59,14 @@ public class ShuntingYard {
                     boolean parenthesisIsNotFound = true;
                     while(parenthesisIsNotFound){
                         Token popOperator = operators.pop();
-                        if(popOperator.getValue() != "("){
-                            outputList.add(operators.pop());
-                        }else{
+                        if(popOperator.getType() == 2){ //If forward parenthesis
                             parenthesisIsNotFound = false;
+                        }else{
+                            outputList.add(popOperator);
                         }
                     }
+
+
                     break;
                 default: //Something went horrendously wrong :(
                     System.out.println("No such type found for "+i+" Type "+tokenArrayList.get(i).getType());
@@ -73,13 +79,27 @@ public class ShuntingYard {
     }
 
     private static boolean firstOperatorHasPrecedence(Token first, Token second){ //TODO Fix this, it's currently a quick hack (ONLY SUPPORTS "+-/*")
-        //TODO WARNING Possible Parenthesis Error?
+        int firstN = 0;
+        int secondN = 0;
+
         if(first.getValue() == "/" || first.getValue() == "*"){
-            if(second.getValue() == "/" || second.getValue() == "*"){
-                return false;
-            }else{
-                return true;
-            }
+            firstN+=2;
+        }
+
+        if(first.getValue() == "+" || first.getValue() == "-"){
+            firstN++;
+        }
+
+        if(second.getValue() == "/" || second.getValue() == "*"){
+            secondN+=2;
+        }
+
+        if(second.getValue() == "+" || second.getValue() == "-"){
+            secondN++;
+        }
+
+        if(firstN>secondN){
+            return true;
         }else{
             return false;
         }
