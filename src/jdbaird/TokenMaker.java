@@ -14,6 +14,10 @@ public class TokenMaker {
         this.expression = expression;
     }
 
+    public ArrayList<Token> getTokenList(){
+        return tokenList;
+    }
+
     public void createTokens(){ //Assume expression is well formed
         tokenList.clear();
         String tokenString = "";
@@ -37,19 +41,25 @@ public class TokenMaker {
                 tokenString = "+";
                 tokenList.add(new Token(tokenString));
                 tokenString = "";
+                ++i;
             }else if(currentChar == '-'){
                 tokenString = "-";
                 tokenList.add(new Token(tokenString));
                 tokenString = "";
+                ++i;
             }else if(currentChar == '('){
                 tokenString = "(";
                 tokenList.add(new Token(tokenString));
                 tokenString = "";
+                ++i;
             }else if(currentChar == ')'){
                 tokenString = ")";
                 tokenList.add(new Token(tokenString));
                 tokenString = "";
+                ++i;
             }
+
+            //TODO Exponent Token
 
         }
     }

@@ -11,4 +11,8 @@ public class Token { //TODO EVERYTHING
         this.value = tokenString;
     }
 
+    public String getValue(){
+        return value;
+    }
+
 }
