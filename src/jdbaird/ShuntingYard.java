@@ -44,8 +44,18 @@ public class ShuntingYard {
                         }
                     break;
                 case 2: //Is (
+                    operators.add(tokenArrayList.get(i));
                     break;
                 case 3: //Is )
+                    boolean parenthesisIsNotFound = true;
+                    while(parenthesisIsNotFound){
+                        Token popOperator = operators.pop();
+                        if(popOperator.getValue() != "("){
+                            outputList.add(operators.pop());
+                        }else{
+                            parenthesisIsNotFound = false;
+                        }
+                    }
                     break;
                 default: //Something went horrendously wrong :(
                     System.out.println("No such type found for "+i+" Type "+tokenArrayList.get(i).getType());
@@ -56,6 +66,7 @@ public class ShuntingYard {
     }
 
     private static boolean firstOperatorHasPrecedence(Token first, Token second){ //TODO Fix this, it's currently a quick hack (ONLY SUPPORTS "+-/*")
+        //TODO WARNING Possible Parenthesis Error?
         if(first.getValue() == "/" || first.getValue() == "*"){
             if(second.getValue() == "/" || second.getValue() == "*"){
                 return false;
