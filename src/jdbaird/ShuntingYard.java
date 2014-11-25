@@ -80,21 +80,14 @@ public class ShuntingYard {
         int firstN = 0;
         int secondN = 0;
 
-        if(first.getValue() == "/" || first.getValue() == "*"){
-            firstN+=2;
-        }
+        if(first.getValue() == "^" ){firstN+=3;}
+        if(second.getValue() == "^" ){secondN+=3;}
 
-        if(first.getValue() == "+" || first.getValue() == "-"){
-            firstN++;
-        }
+        if(first.getValue() == "/" || first.getValue() == "*"){firstN+=2;}
+        if(first.getValue() == "+" || first.getValue() == "-"){firstN++;}
 
-        if(second.getValue() == "/" || second.getValue() == "*"){
-            secondN+=2;
-        }
-
-        if(second.getValue() == "+" || second.getValue() == "-"){
-            secondN++;
-        }
+        if(second.getValue() == "/" || second.getValue() == "*"){secondN+=2;}
+        if(second.getValue() == "+" || second.getValue() == "-"){secondN++;}
 
         if(firstN>secondN){
             return true;

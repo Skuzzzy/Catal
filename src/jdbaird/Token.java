@@ -7,6 +7,7 @@ public class Token {
 
     private String value;
     private int type;
+    private int weight;
 
     public Token(String tokenString,int tokenType){
         this.value = tokenString;

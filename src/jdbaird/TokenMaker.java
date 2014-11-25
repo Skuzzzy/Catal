@@ -63,8 +63,13 @@ public class TokenMaker {
                 tokenList.add(new Token(tokenString,1));
                 tokenString = "";
                 i++;
-            }else if(currentChar == '/'){
+            }else if(currentChar == '/') {
                 tokenString = "/";
+                tokenList.add(new Token(tokenString, 1));
+                tokenString = "";
+                i++;
+            }else if(currentChar == '^'){
+                tokenString = "^";
                 tokenList.add(new Token(tokenString,1));
                 tokenString = "";
                 i++;
@@ -81,8 +86,6 @@ public class TokenMaker {
             }else{
                 System.out.println("Char not found");
             }
-
-            //TODO Exponent Token
 
         }
     }
