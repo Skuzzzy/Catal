@@ -65,8 +65,6 @@ public class ShuntingYard {
                             outputList.add(popOperator);
                         }
                     }
-
-
                     break;
                 default: //Something went horrendously wrong :(
                     System.out.println("No such type found for "+i+" Type "+tokenArrayList.get(i).getType());
@@ -78,7 +76,7 @@ public class ShuntingYard {
         }
     }
 
-    private static boolean firstOperatorHasPrecedence(Token first, Token second){ //TODO Fix this, it's currently a quick hack (ONLY SUPPORTS "+-/*")
+    private static boolean firstOperatorHasPrecedence(Token first, Token second){ //TODO Fix this, it's currently a quick hack (ONLY SUPPORTS "+-/*()")
         int firstN = 0;
         int secondN = 0;
 
