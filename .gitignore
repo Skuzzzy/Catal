@@ -1,43 +1,44 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+*.iml
 
-# Folder config file
-Desktop.ini
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# User-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
 
-# =========================
-# Operating System Files
-# =========================
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
 
-# OSX
-# =========================
+# Mongo Explorer plugin:
+# .idea/mongoSettings.xml
 
-.DS_Store
-.AppleDouble
-.LSOverride
+## File-based project format:
+*.ipr
+*.iws
 
-# Icon must end with two \r
-Icon
+## Plugin-specific files:
 
-# Thumbnails
-._*
+# IntelliJ
+out/
 
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
+# mpeltonen/sbt-idea plugin
+.idea_modules/
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
