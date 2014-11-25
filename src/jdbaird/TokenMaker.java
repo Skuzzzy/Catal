@@ -33,28 +33,38 @@ public class TokenMaker {
                         currentChar = expression.charAt(i);
                         tokenString += currentChar;
                     }else{
-                        tokenList.add(new Token(tokenString));
+                        tokenList.add(new Token(tokenString,0));
                         tokenString = "";
                     }
                 }
             }else if(currentChar == '+'){
                 tokenString = "+";
-                tokenList.add(new Token(tokenString));
+                tokenList.add(new Token(tokenString,1));
                 tokenString = "";
                 ++i;
             }else if(currentChar == '-'){
                 tokenString = "-";
-                tokenList.add(new Token(tokenString));
+                tokenList.add(new Token(tokenString,2));
+                tokenString = "";
+                ++i;
+            }else if(currentChar == '*'){
+                tokenString = "*";
+                tokenList.add(new Token(tokenString,3));
+                tokenString = "";
+                ++i;
+            }else if(currentChar == '/'){
+                tokenString = "/";
+                tokenList.add(new Token(tokenString,4));
                 tokenString = "";
                 ++i;
             }else if(currentChar == '('){
                 tokenString = "(";
-                tokenList.add(new Token(tokenString));
+                tokenList.add(new Token(tokenString,5));
                 tokenString = "";
                 ++i;
             }else if(currentChar == ')'){
                 tokenString = ")";
-                tokenList.add(new Token(tokenString));
+                tokenList.add(new Token(tokenString,6));
                 tokenString = "";
                 ++i;
             }
