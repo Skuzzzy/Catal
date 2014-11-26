@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         //3.2+32*(45.12+5)+5/14.7 = 1607.38013605
 
-        TokenMaker test = new TokenMaker("2^(5)");
+        TokenMaker test = new TokenMaker("3.2+32*(45.12+5)+5/14.7");
 
         for(int i = 0; i<test.getTokenList().size();i++){
             System.out.print(test.getTokenList().get(i).getContents()+" ");
