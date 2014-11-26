@@ -1,6 +1,8 @@
 
 package jdbaird;
 
+import jdbaird.tokens.Token;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -11,7 +13,7 @@ import java.util.Stack;
  */
 
 public class ShuntingYard {
-    /*
+
     private ArrayList<Token> tokenArrayList;
 
     private Stack<Token> operators = new Stack();
@@ -33,7 +35,7 @@ public class ShuntingYard {
                 case 0: //Is number
                     outputList.add(tokenArrayList.get(i));
                     break;
-                case 1: //Is operator
+                case 2: //Is operator
                         boolean operatorNotPlaced = true;
                         while(operatorNotPlaced) { //While the operator hasn't been added to the stack
                             if(!operators.isEmpty()){
@@ -53,10 +55,10 @@ public class ShuntingYard {
                             }
                         }
                     break;
-                case 2: //Is (
+                case 3: //Is (
                     operators.add(tokenArrayList.get(i));
                     break;
-                case 3: //Is )
+                case 4: //Is )
                     boolean parenthesisIsNotFound = true;
                     while(parenthesisIsNotFound){
                         Token popOperator = operators.pop();
@@ -77,18 +79,18 @@ public class ShuntingYard {
         }
     }
 
-    private static boolean firstOperatorHasPrecedence(Token first, Token second){ //TODO Fix this, it's currently a quick hack (ONLY SUPPORTS "+-/*()")
+    private static boolean firstOperatorHasPrecedence(Token first, Token second){
         int firstN = 0;
         int secondN = 0;
 
-        if(first.getValue() == "^" ){firstN+=3;}
-        if(second.getValue() == "^" ){secondN+=3;}
+        if(first.getContents() == "^" ){firstN+=3;}
+        if(second.getContents() == "^" ){secondN+=3;}
 
-        if(first.getValue() == "/" || first.getValue() == "*"){firstN+=2;}
-        if(first.getValue() == "+" || first.getValue() == "-"){firstN++;}
+        if(first.getContents() == "/" || first.getContents() == "*"){firstN+=2;}
+        if(first.getContents() == "+" || first.getContents() == "-"){firstN++;}
 
-        if(second.getValue() == "/" || second.getValue() == "*"){secondN+=2;}
-        if(second.getValue() == "+" || second.getValue() == "-"){secondN++;}
+        if(second.getContents() == "/" || second.getContents() == "*"){secondN+=2;}
+        if(second.getContents() == "+" || second.getContents() == "-"){secondN++;}
 
         if(firstN>secondN){
             return true;
@@ -96,5 +98,5 @@ public class ShuntingYard {
             return false;
         }
     }
-    */
+
 }

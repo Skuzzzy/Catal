@@ -1,5 +1,7 @@
 package jdbaird;
 
+import jdbaird.tokens.Token;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -13,7 +15,7 @@ public class Main {
             System.out.print(test.getTokenList().get(i).getContents()+" ");
         }
 
-        /*
+
         System.out.println("");
 
         ShuntingYard railroad = new ShuntingYard(test.getTokenList());
@@ -22,9 +24,9 @@ public class Main {
         ArrayList<Token> out = railroad.getOutputList();
 
         for(int i = 0; i<out.size();i++){
-            System.out.print(out.get(i).getValue()+" ");
+            System.out.print(out.get(i).getContents()+" ");
         }
-        */
+
 
     }
 }
