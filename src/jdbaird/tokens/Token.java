@@ -15,7 +15,7 @@ public interface Token {
 
     public String getContents();
 
-    public int evaluationStackConsumption();
+    public int getEvaluationStackConsumption();
     public String evaluate(String[] arguments);
 
 }

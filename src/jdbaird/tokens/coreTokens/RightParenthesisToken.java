@@ -7,7 +7,7 @@ import jdbaird.tokens.Token;
  */
 public class RightParenthesisToken implements Token{
     @Override
-    public int evaluationStackConsumption() {
+    public int getEvaluationStackConsumption() {
         return 0;
     }
 

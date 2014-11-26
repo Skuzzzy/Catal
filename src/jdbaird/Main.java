@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         //3.2+32*(45.12+5)+5/14.7 = 1607.38013605
 
-        TokenMaker test = new TokenMaker("3.2+32*(45.12+5)+5/14.7");
+        TokenMaker test = new TokenMaker("3+32*(45+5)+5/14");
 
         for(int i = 0; i<test.getTokenList().size();i++){
             System.out.print(test.getTokenList().get(i).getContents()+" ");
@@ -26,6 +26,10 @@ public class Main {
         for(int i = 0; i<out.size();i++){
             System.out.print(out.get(i).getContents()+" ");
         }
+
+        PostfixEvaluation check = new PostfixEvaluation(railroad.getOutputList());
+        System.out.println("");
+        System.out.println(check.getResult());
 
     }
 }

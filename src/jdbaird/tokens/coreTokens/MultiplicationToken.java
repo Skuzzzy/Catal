@@ -8,7 +8,7 @@ import jdbaird.tokens.Token;
 public class MultiplicationToken implements Token {
 
     @Override
-    public int evaluationStackConsumption() {
+    public int getEvaluationStackConsumption() {
         return 2;
     }
 

@@ -14,7 +14,7 @@ public class NumberToken implements Token {
     }
 
     @Override
-    public int evaluationStackConsumption() {
+    public int getEvaluationStackConsumption() {
         return 0;
     }
 
