@@ -2,6 +2,8 @@ package jdbaird.tokens.coreTokens;
 
 import jdbaird.tokens.Token;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Daniel on 11/25/2014.
  */
@@ -23,7 +25,7 @@ public class SubtractionToken implements Token {
 
     @Override
     public String evaluate(String[] arguments) {
-        String result = "" + (Double.parseDouble(arguments[0]) - Double.parseDouble(arguments[1]));
+        String result = "" + (new BigDecimal(arguments[0]).subtract(new BigDecimal(arguments[1])));
         return result;
     }
 }
