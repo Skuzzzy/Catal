@@ -19,7 +19,7 @@ public class MultiplicationToken implements Token {
 
     @Override
     public String getContents(){
-        return "/";
+        return "*";
     }
 
     @Override

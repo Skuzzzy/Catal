@@ -30,7 +30,6 @@ public class ShuntingYard {
 
     public void algorithm(){
         for(int i=0;i<tokenArrayList.size();i++){
-            //System.out.print("\n"+tokenArrayList.get(i).getValue() + "|" +tokenArrayList.get(i).getType()+" ");
             switch (tokenArrayList.get(i).getType()){
                 case 0: //Is number
                     outputList.add(tokenArrayList.get(i));
@@ -62,7 +61,7 @@ public class ShuntingYard {
                     boolean parenthesisIsNotFound = true;
                     while(parenthesisIsNotFound){
                         Token popOperator = operators.pop();
-                        if(popOperator.getType() == 2){ //If forward parenthesis
+                        if(popOperator.getType() == 3){ //If LeftParenthesisToken
                             parenthesisIsNotFound = false;
                         }else{
                             outputList.add(popOperator);
@@ -72,11 +71,19 @@ public class ShuntingYard {
                 default: //Something went horrendously wrong :(
                     System.out.println("No such type found for "+i+" Type "+tokenArrayList.get(i).getType());
             }
+
+            /*
+            System.out.println();
+            for(int a = 0; a<outputList.size();a++){
+                System.out.print(outputList.get(a).getContents()+" ");
+            }
+            */
         }
         //After For Loop
         while(!operators.isEmpty()){
             outputList.add(operators.pop());
         }
+
     }
 
     private static boolean firstOperatorHasPrecedence(Token first, Token second){
