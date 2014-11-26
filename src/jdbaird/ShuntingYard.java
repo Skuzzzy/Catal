@@ -1,3 +1,4 @@
+
 package jdbaird;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Stack;
  */
 
 public class ShuntingYard {
-
+    /*
     private ArrayList<Token> tokenArrayList;
 
     private Stack<Token> operators = new Stack();
@@ -95,5 +96,5 @@ public class ShuntingYard {
             return false;
         }
     }
-
+    */
 }

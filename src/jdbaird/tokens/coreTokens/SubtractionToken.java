@@ -21,7 +21,6 @@ public class SubtractionToken implements Token {
         return "-";
     }
 
-
     @Override
     public String evaluate(String[] arguments) {
         String result = "" + (Double.parseDouble(arguments[0]) - Double.parseDouble(arguments[1]));
